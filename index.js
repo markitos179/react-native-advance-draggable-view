@@ -134,6 +134,11 @@ export default class component extends Component {
     var isGoingToUp = (gestureState.vy < 0);
     //Here, I'm subtracting %5 of screen size from edge drawer position to be closer as possible to finger location when dragging the drawer view
     var position = gestureState.moveY - SCREEN_HEIGHT * 0.05;
+    
+    if(position < 90){
+        return;
+    }
+    
     //Send to callback function the current drawer position when drag down the drawer view component
     //   if(!isGoingToUp) this.props.onDragDown(1-currentValue);
     this.onUpdatePosition(position);
